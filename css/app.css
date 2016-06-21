@@ -106,3 +106,15 @@ body > footer > h4 > a {
 .icon-heart {
 	color: #faa6c0;
 }
+
+#loading-bar .bar {
+	background: #000;
+}
+
+#loading-bar .peg {
+	box-shadow: #000 1px 0 6px 1px;
+}
+
+[ng-cloak] {
+	display: none;
+}
