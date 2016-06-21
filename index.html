@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>/dev/null #ricarocasares</title>
+	<title>/dev/null</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github-gist.min.css">
 	<link rel="stylesheet" type="text/css" href="css/logos.css">
@@ -32,6 +32,12 @@
 
 		header {
 			text-align: center;
+		}
+
+		header a {
+			text-decoration: none;
+			font-family: 'Roboto', sans-serif;
+			color: #999;
 		}
 
 		h1,
@@ -110,11 +116,16 @@
 	</style>
 </head>
 <body>
+	<header>
+		<h1>/dev/null</h1>
+		<p><a href="https://github.com/ricardocasares"><i class="icon-github-circled"></i>ricardocasares</a></p>
+	</header>
 	<div class="main" ng-controller="Home as vm">
 		<section>
 			<article ng-repeat="issue in vm.issues">
 				<header>
 					<h2 ng-bind="issue.title"></h2>
+					<p>Issue #<span ng-bind="issue.id"></span></p>
 				</header>
 				<div marked="issue.body"></div>
 				<footer>
