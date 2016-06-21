@@ -4,6 +4,7 @@
 	<title>/dev/null</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github-gist.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css">
 	<link rel="stylesheet" type="text/css" href="css/logos.css">
 	<style type="text/css">
 		@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
@@ -114,6 +115,14 @@
 		.icon-heart {
 			color: #faa6c0;
 		}
+
+		#loading-bar .bar {
+			background: #000;
+		}
+
+		#loading-bar .peg {
+			box-shadow: #000 1px 0 6px 1px;
+		}
 	</style>
 </head>
 <body>
@@ -144,6 +153,8 @@
 		<h4>with <i class="icon-heart"></i> by <a href="https://github.com/ricardocasares"><i class="icon-github-circled"></i>ricardocasares</a></h4>
 	</footer>
 	<script type="text/javascript" src="js/ng.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.7/angular-animate.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js"></script>
 	<script type="text/javascript" src="js/highlight.js"></script>
 	<script type="text/javascript" src="js/marked.js"></script>
 	<script type="text/javascript" src="js/ng-marked.js"></script>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-	.module('bloghub', ['hc.marked'])
+	.module('bloghub', ['hc.marked', 'angular-loading-bar', 'ngAnimate'])
 	.config(['markedProvider', function(markedProvider) {
 		markedProvider.setOptions({
 			gfm: true,
@@ -13,6 +13,9 @@ angular
 				}
 			}
 		});
+	}])
+	.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+		cfpLoadingBarProvider.includeSpinner = false;
 	}])
 	.constant('APP', {
 		api: 'https://api.github.com',
