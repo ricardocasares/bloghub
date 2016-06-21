@@ -3,6 +3,7 @@
 <head>
 	<title>Test</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/styles/github.min.css">
 	<style type="text/css">
 		@import url(https://fonts.googleapis.com/css?family=Playfair+Display:700);
 		@import url(https://fonts.googleapis.com/css?family=Fauna+One);
@@ -27,10 +28,24 @@
 			color: #000;
 			font-family: 'Playfair Display', sans-serif;
 		}
+
+		.main {
+			max-width: 960px;
+			margin: 0 auto;
+		}
+
+		article {
+			margin: 20px 0;
+			border-bottom: 1px dashed #CCC;
+		}
+
+		[marked] {
+			padding-bottom: 20px;
+		}
 	</style>
 </head>
 <body>
-	<div ng-controller="Home as vm">
+	<div class="main" ng-controller="Home as vm">
 		<setcion>
 			<article ng-repeat="issue in vm.issues">
 				<header>
@@ -44,7 +59,7 @@
 	</div>
 	<script type="text/javascript" src="ng.js"></script>
 	<script type="text/javascript" src="router.js"></script>
-
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/highlight.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.7/angular-sanitize.min.js"></script>
 	<script type="text/javascript" src="marked.js"></script>

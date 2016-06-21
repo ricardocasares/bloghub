@@ -3,7 +3,16 @@
 angular
 	.module('bloghub', ['ngSanitize', 'hc.marked'])
 	.config(['markedProvider', function(markedProvider) {
-		markedProvider.setOptions({gfm: true});
+		markedProvider.setOptions({
+			gfm: true,
+			highlight: function(code, lang) {
+				if (lang) {
+					return hljs.highlight(lang, code, true).value;
+				} else {
+					return hljs.highlightAuto(code).value;
+				}
+			}
+		});
 	}])
 	.constant('APP', {
 		api: 'http://api.github.com',
@@ -11,7 +20,7 @@ angular
 	.service('github', ['APP', '$http', function(APP, $http) {
 		return {
 			issues: function() {
-				return $http.get(APP.api + '/repos/ricardocasares/grow/issues');
+				return $http.get(APP.api + '/repos/ricardocasares/ricardocasares.github.io/issues');
 			}
 		}
 	}])
