@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-	.module('bloghub', ['ngSanitize', 'hc.marked'])
+	.module('bloghub', ['hc.marked'])
 	.config(['markedProvider', function(markedProvider) {
 		markedProvider.setOptions({
 			gfm: true,
