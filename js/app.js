@@ -29,7 +29,6 @@ angular
 	}])
 	.controller('Home', ['github', function(github) {
 		var vm = this;
-		vm.name = 'Ricardo';
 		github.issues().then(function(res) {
 			vm.issues = res.data;
 		});
