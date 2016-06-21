@@ -125,7 +125,7 @@
 			<article ng-repeat="issue in vm.issues">
 				<header>
 					<h2 ng-bind="issue.title"></h2>
-					<p>Issue #<span ng-bind="issue.id"></span></p>
+					<p>Issue <a ng-href="https://github.com/ricardocasares/ricardocasares.github.io/issues/{{issue.number}}">#<span ng-bind="issue.number"></span></a></p>
 				</header>
 				<div marked="issue.body"></div>
 				<footer>
