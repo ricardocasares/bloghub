@@ -15,7 +15,7 @@ angular
 		});
 	}])
 	.constant('APP', {
-		api: 'http://api.github.com',
+		api: 'https://api.github.com',
 	})
 	.service('github', ['APP', '$http', function(APP, $http) {
 		return {
