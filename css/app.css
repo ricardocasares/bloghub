@@ -118,3 +118,7 @@ body > footer > h4 > a {
 [ng-cloak] {
 	display: none;
 }
+
+pre {
+	overflow-x: auto;
+}
