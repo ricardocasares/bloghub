@@ -62,12 +62,8 @@
             </a>
           </div>
 
-          <div ng-show="!$ctrl.tagsLoaded">
-            Loading tags...
-          </div>
-
           <div class="post-preview"
-            ng-show="$ctrl.tagsLoaded && !$ctrl.tags.length">
+            ng-show="!$ctrl.tags.length">
             No tags are here... yet.
           </div>
 

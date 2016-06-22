@@ -3,8 +3,9 @@ export default function authInterceptor(JWT, AppConstants, $window, $q) {
   return {
     // automatically attach Authorization header
     request: function(config) {
-      if(config.url.indexOf('issues') > 0) {
-        config.params.access_token = AppConstants.access_token
+      config.params = config.params || {};
+      if (config.url.indexOf('github') > 0) {
+        config.params.access_token = AppConstants.token
       }
       return config;
     },

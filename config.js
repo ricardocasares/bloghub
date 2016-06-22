@@ -6,5 +6,8 @@ module.exports = {
         repo: process.env.GITHUB_REPO,
         user: process.env.GITHUB_USER,
         token: process.env.GITHUB_TOKEN
+    },
+    settings: {
+        debug: process.env.NODE_ENV !== 'production'
     }
 };

@@ -19,17 +19,28 @@ module.exports = {
         name: 'watchify',
         options: {}
       },
-      {
-        name: 'minifyify',
-        options: {
-          map: 'bundle.js.map',
-          output: 'build/bundle.js.map'
-        }
-      }
+      // {
+      //   name: 'minifyify',
+      //   options: {
+      //     map: 'bundle.js.map',
+      //     output: 'build/bundle.js.map'
+      //   }
+      // }
     ],
     babelify: {
       presets: ['es2015']
     }
+  },
+  build: {
+    plugins: [
+      // {
+      //   name: 'minifyify',
+      //   options: {
+      //     map: 'bundle.js.map',
+      //     output: 'build/bundle.js.map'
+      //   }
+      // }
+    ]
   },
   copy: {
       src: 'src/index.html',
@@ -60,7 +71,8 @@ module.exports = {
     dest: 'src/js/config',
     file: 'app.templates.js',
     templates: {
-        standalone: true
+        standalone: true,
+        templateHeader: 'export default angular.module("<%= module %>"<%= standalone %>).run(["$templateCache", function($templateCache) {'
     }
   },
   config: {
