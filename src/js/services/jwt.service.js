@@ -1,7 +1,6 @@
 export default class JWT {
+  // @ngInject
   constructor(AppConstants, $window) {
-    'ngInject';
-
     this._AppConstants = AppConstants;
     this._$window = $window;
   }

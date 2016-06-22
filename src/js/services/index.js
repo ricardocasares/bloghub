@@ -1,28 +1,16 @@
 import angular from 'angular';
-
-// Create the home module where our functionality can attach to
-let servicesModule = angular.module('app.services', []);
-
-
-// Services
 import UserService from './user.service';
-servicesModule.service('User', UserService);
-
 import JwtService from './jwt.service';
-servicesModule.service('JWT', JwtService);
-
 import TagsService from './tags.service';
-servicesModule.service('Tags', TagsService);
-
 import ArticlesService from './articles.service';
-servicesModule.service('Articles', ArticlesService);
-
 import CommentsService from './comments.service';
-servicesModule.service('Comments', CommentsService);
-
 import ProfileService from './profile.service';
-servicesModule.service('Profile', ProfileService);
 
-
-
-export default servicesModule;
+export default angular
+    .module('app.services', [])
+    .service('User', UserService)
+    .service('JWT', JwtService)
+    .service('Tags', TagsService)
+    .service('Articles', ArticlesService)
+    .service('Comments', CommentsService)
+    .service('Profile', ProfileService);

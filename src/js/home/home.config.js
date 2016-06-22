@@ -1,6 +1,5 @@
-function HomeConfig($stateProvider) {
-  'ngInject';
-
+// @ngInject
+export default function HomeConfig($stateProvider) {
   $stateProvider
   .state('app.home', {
     url: '/',
@@ -9,7 +8,4 @@ function HomeConfig($stateProvider) {
     templateUrl: 'home/home.html',
     title: 'Home'
   });
-
 };
-
-export default HomeConfig;

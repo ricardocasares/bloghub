@@ -1,11 +1,10 @@
-function authInterceptor(JWT, AppConstants, $window, $q) {
-  'ngInject';
-
+// @ngInject
+export default function authInterceptor(JWT, AppConstants, $window, $q) {
   return {
     // automatically attach Authorization header
     request: function(config) {
-      if(config.url.indexOf(AppConstants.api) === 0 && JWT.get()) {
-        config.headers.Authorization = 'Token ' + JWT.get();
+      if(config.url.indexOf('issues') > 0) {
+        config.params.access_token = AppConstants.access_token
       }
       return config;
     },
@@ -20,8 +19,5 @@ function authInterceptor(JWT, AppConstants, $window, $q) {
       }
       return $q.reject(rejection);
     }
-
   }
 }
-
-export default authInterceptor;

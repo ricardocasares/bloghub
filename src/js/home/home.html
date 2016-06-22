@@ -56,9 +56,9 @@
 
           <div class="tag-list" ng-show="$ctrl.tags">
             <a href="" class="tag-default tag-pill"
-              ng-click="$ctrl.changeList({ type: 'all', filters: { tag: tagName } })"
-              ng-repeat="tagName in $ctrl.tags"
-              ng-bind="tagName">
+              ng-click="$ctrl.changeList({ type: 'all', filters: { tag: tag.name } })"
+              ng-repeat="tag in $ctrl.tags"
+              ng-bind="tag.name">
             </a>
           </div>
 

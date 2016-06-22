@@ -1,14 +1,10 @@
 export default class Articles {
+  // @ngInject
   constructor(AppConstants, $http) {
-    'ngInject';
-
     this._AppConstants = AppConstants;
     this._$http = $http;
-
-
   }
 
-  // Favorite an article
   favorite(slug) {
     return this._$http({
       url: this._AppConstants.api + '/articles/' + slug + '/favorite',
@@ -16,7 +12,6 @@ export default class Articles {
     });
   }
 
-  // Unfavorite an article
   unfavorite(slug) {
     return this._$http({
       url: this._AppConstants.api + '/articles/' + slug + '/favorite',
@@ -24,11 +19,8 @@ export default class Articles {
     });
   }
 
-  // Creates or updates an article
   save(article) {
-
     let request = {};
-
 
     // If there's a slug, perform an update via PUT w/ article's slug
     if (article.slug) {
@@ -49,10 +41,8 @@ export default class Articles {
     request.data = { article: article };
 
     return this._$http(request).then((res) => res.data.article);
-
   }
 
-  // Delete an article
   destroy(slug) {
     return this._$http({
       url: this._AppConstants.api + '/articles/' + slug,
@@ -60,32 +50,19 @@ export default class Articles {
     });
   }
 
-  // Retrieve a single article
   get(slug) {
     return this._$http({
-      url: this._AppConstants.api + '/articles/' + slug,
+      url: 'https://api.github.com/repos/ricardocasares/ricardocasares.github.io/issues',
       method: 'GET'
     }).then((res) => res.data.article);
   }
 
-  /*
-    Config object spec:
-
-    {
-      type: String [REQUIRED] - Accepts "all", "feed"
-      filters: Object - Key value of URL params (i.e. {author:"ericsimons"} )
-    }
-  */
   query(config) {
-
-    // Create the $http object for this request
     let request = {
-      url: this._AppConstants.api + '/articles' + ((config.type === 'feed') ? '/feed' : ''),
+      url: 'https://api.github.com/repos/ricardocasares/ricardocasares.github.io/issues',
       method: 'GET',
       params: config.filters ? config.filters : null
     };
     return this._$http(request).then((res) => res.data);
   }
-
-
 }

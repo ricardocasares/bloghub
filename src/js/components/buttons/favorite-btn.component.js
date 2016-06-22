@@ -1,12 +1,9 @@
 class FavoriteBtnCtrl {
+  // @ngInject
   constructor(User, Articles, $state) {
-    'ngInject';
-
     this._Articles = Articles;
     this._User = User;
-
     this._$state = $state;
-
   }
 
   submit() {
@@ -26,7 +23,6 @@ class FavoriteBtnCtrl {
           this.article.favoritesCount--;
         }
       )
-
     // Otherwise, favorite it
     } else {
       this._Articles.favorite(this.article.slug).then(
@@ -37,12 +33,10 @@ class FavoriteBtnCtrl {
         }
       )
     }
-
-
   }
 }
 
-let FavoriteBtn= {
+let FavoriteBtn = {
   bindings: {
     article: '='
   },

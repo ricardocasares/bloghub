@@ -1,6 +1,5 @@
-function SettingsConfig($stateProvider) {
-  'ngInject';
-
+// @ngInject
+export default function SettingsConfig($stateProvider) {
   $stateProvider
   .state('app.settings', {
     url: '/settings',
@@ -16,5 +15,3 @@ function SettingsConfig($stateProvider) {
   });
 
 };
-
-export default SettingsConfig;

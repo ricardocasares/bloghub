@@ -1,7 +1,6 @@
 class ArticleActionsCtrl {
+  // @ngInject
   constructor(Articles, User, $state) {
-    'ngInject';
-
     this._Articles = Articles;
     this._$state = $state;
 
@@ -11,7 +10,6 @@ class ArticleActionsCtrl {
     } else {
       this.canModify = false;
     }
-
   }
 
   deleteArticle() {
@@ -20,7 +18,6 @@ class ArticleActionsCtrl {
       (success) => this._$state.go('app.home'),
       (err) => this._$state.go('app.home')
     );
-
   }
 }
 

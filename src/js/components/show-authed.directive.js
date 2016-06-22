@@ -1,11 +1,9 @@
-function ShowAuthed(User) {
-  'ngInject';
-
+// @ngInject
+export default function ShowAuthed(User) {
   return {
     restrict: 'A',
     link: function(scope, element, attrs) {
       scope.User = User;
-
       scope.$watch('User.current', function(val) {
           // If user detected
           if (val) {
@@ -14,7 +12,6 @@ function ShowAuthed(User) {
             } else {
               element.css({ display: 'none'})
             }
-
           // no user detected
           } else {
             if (attrs.showAuthed === 'true') {
@@ -24,9 +21,6 @@ function ShowAuthed(User) {
             }
           }
       });
-
     }
   };
 }
-
-export default ShowAuthed;

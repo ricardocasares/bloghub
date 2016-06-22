@@ -1,20 +1,17 @@
 export default class User {
+  // @ngInject
   constructor(JWT, AppConstants, $window, $state, $http, $q) {
-    'ngInject';
-
     this._AppConstants = AppConstants;
     this._$window = $window;
     this._$state = $state;
     this._$http = $http;
     this._JWT = JWT;
     this._$q = $q;
-
     // Object to store our user properties
     this.current = null;
   }
 
   update(fields) {
-
     return this._$http({
       url: this._AppConstants.api + '/user',
       method: 'PUT',
@@ -105,13 +102,10 @@ export default class User {
     return deferred.promise;
   }
 
-
   logout() {
     this.current = null;
     this._JWT.destroy();
     // Do a hard reload of current state to ensure all data is flushed
     this._$state.go(this._$state.$current, null, { reload: true });
   }
-
-
 }

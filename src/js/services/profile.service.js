@@ -1,14 +1,10 @@
 export default class Profile {
+  // @ngInject
   constructor(AppConstants, $http) {
-    'ngInject';
-
     this._AppConstants = AppConstants;
     this._$http = $http;
-
-
   }
 
-  // Retrieve a user's profile
   get(username) {
     return this._$http({
       url: this._AppConstants.api + '/profiles/' + username,
@@ -16,7 +12,6 @@ export default class Profile {
     }).then((res) => res.data.profile);
   }
 
-  // Follow a user
   follow(username) {
     return this._$http({
       url: this._AppConstants.api + '/profiles/' + username + '/follow',
@@ -24,15 +19,10 @@ export default class Profile {
     }).then((res) => res.data);
   }
 
-  // Unfollow a user
   unfollow(username) {
     return this._$http({
       url: this._AppConstants.api + '/profiles/' + username + '/follow',
       method: 'DELETE'
     }).then((res) => res.data);
   }
-
-
-
-
 }

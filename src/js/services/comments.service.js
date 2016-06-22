@@ -1,15 +1,10 @@
 export default class Comments {
+  // @ngInject
   constructor(AppConstants, $http) {
-    'ngInject';
-
     this._AppConstants = AppConstants;
     this._$http = $http;
-
-
   }
 
-
-  // Add a comment to an article
   add(slug, payload) {
     return this._$http({
       url: `${this._AppConstants.api}/articles/${slug}/comments`,
@@ -19,7 +14,6 @@ export default class Comments {
 
   }
 
-  // Delete a comment from an article
   destroy(commentId, articleSlug) {
     return this._$http({
       url: `${this._AppConstants.api}/articles/${articleSlug}/comments/${commentId}`,
@@ -28,12 +22,10 @@ export default class Comments {
 
   }
 
-  // Retrieve the comments for an article
   getAll(slug) {
     return this._$http({
       url: `${this._AppConstants.api}/articles/${slug}/comments`,
       method: 'GET'
     }).then((res) => res.data.comments);
   }
-
 }

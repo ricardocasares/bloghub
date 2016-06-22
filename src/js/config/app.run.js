@@ -1,6 +1,5 @@
-function AppRun(AppConstants, $rootScope) {
-  'ngInject';
-
+// @ngInject
+export default function AppRun(AppConstants, $rootScope) {
   // change page title based on state
   $rootScope.$on('$stateChangeSuccess', (event, toState) => {
     $rootScope.setPageTitle(toState.title);
@@ -15,7 +14,4 @@ function AppRun(AppConstants, $rootScope) {
     }
     $rootScope.pageTitle += AppConstants.appName;
   };
-
 }
-
-export default AppRun;

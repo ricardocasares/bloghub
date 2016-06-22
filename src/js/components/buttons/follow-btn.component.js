@@ -1,10 +1,8 @@
-class FollowBtnCtrl {
+export default class FollowBtnCtrl {
+  // @ngInject
   constructor(Profile, User, $state) {
-    'ngInject';
-
     this._Profile = Profile;
     this._User = User;
-
     this._$state = $state;
   }
 
@@ -34,17 +32,13 @@ class FollowBtnCtrl {
         }
       )
     }
-
-
   }
 }
 
-let FollowBtn= {
+let FollowBtn = {
   bindings: {
     user: '='
   },
   controller: FollowBtnCtrl,
   templateUrl: 'components/buttons/follow-btn.html'
 };
-
-export default FollowBtn;

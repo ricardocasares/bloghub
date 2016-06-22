@@ -1,6 +1,5 @@
-function ProfileConfig($stateProvider) {
-  'ngInject';
-
+// @ngInject
+export default function ProfileConfig($stateProvider) {
   $stateProvider
   .state('app.profile', {
     abstract: true,
@@ -37,5 +36,3 @@ function ProfileConfig($stateProvider) {
   });
 
 };
-
-export default ProfileConfig;

@@ -1,9 +1,8 @@
 import marked from 'marked';
 
-class ArticleCtrl {
+export default class ArticleCtrl {
+  // @ngInject
   constructor(article, User, Comments, $sce, $rootScope) {
-    'ngInject';
-
     this.article = article;
     this._Comments = Comments;
 
@@ -53,10 +52,5 @@ class ArticleCtrl {
         this.comments.splice(index, 1);
       }
     );
-
   }
-
 }
-
-
-export default ArticleCtrl;

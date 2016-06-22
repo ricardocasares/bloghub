@@ -1,17 +1,14 @@
-class SettingsCtrl {
+export default class SettingsCtrl {
+  // @ngInject
   constructor(User, $state, $rootScope) {
-    'ngInject';
-
     this._User = User;
     this._$state = $state;
-
     this.formData = {
        email: User.current.email,
        bio: User.current.bio,
        image: User.current.image,
        username: User.current.username
     };
-
   }
 
   submitForm() {
@@ -26,8 +23,4 @@ class SettingsCtrl {
       }
     )
   }
-
 }
-
-
-export default SettingsCtrl;

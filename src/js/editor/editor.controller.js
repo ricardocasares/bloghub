@@ -1,7 +1,6 @@
-class EditorCtrl {
+export default class EditorCtrl {
+  // @ngInject
   constructor(Articles, article, $state) {
-    'ngInject';
-
     this._Articles = Articles;
     this._$state = $state;
 
@@ -45,8 +44,4 @@ class EditorCtrl {
       }
     );
   }
-
 }
-
-
-export default EditorCtrl;

@@ -1,6 +1,5 @@
-function EditorConfig($stateProvider) {
-  'ngInject';
-
+// @ngInject
+export default function EditorConfig($stateProvider) {
   $stateProvider
   .state('app.editor', {
     url: '/editor/:slug',
@@ -38,7 +37,4 @@ function EditorConfig($stateProvider) {
 
     }
   });
-
 };
-
-export default EditorConfig;

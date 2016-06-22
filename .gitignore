@@ -36,3 +36,4 @@ node_modules
 
 build/*
 src/js/config/app.templates.js
+src/js/config/app.constants.js
