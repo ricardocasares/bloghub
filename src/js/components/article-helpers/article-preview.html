@@ -7,14 +7,14 @@
     </favorite-btn>
   </article-meta>
 
-  <a ui-sref="app.article({ slug: $ctrl.article.slug })" class="preview-link">
+  <a ui-sref="app.article({ slug: $ctrl.article.number })" class="preview-link">
     <h1 ng-bind="$ctrl.article.title"></h1>
     <p ng-bind="$ctrl.article.body"></p>
     <span>Read more...</span>
     <ul class="tag-list">
       <li class="tag-default tag-pill tag-outline"
-        ng-repeat="tag in $ctrl.article.tagList">
-        {{tag}}
+        ng-repeat="tag in $ctrl.article.labels">
+        {{tag.name}}
       </li>
     </ul>
   </a>

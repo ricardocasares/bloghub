@@ -22,9 +22,9 @@ import appConstants from './config/app.constants';
 
 // dependencies
 const deps = [
+  router,
   loading,
   animate,
-  router,
   layout.name,
   components.name,
   home.name,
