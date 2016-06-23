@@ -13,12 +13,17 @@ const annotate = require('browserify-ngannotate');
 
 module.exports = (opts) => {
     const bundler = browserify(opts)
+        .external(opts.external)
         .transform(babelify, opts.babelify)
         .transform(annotate);
 
     opts
         .plugins
         .forEach(p => bundler.plugin(p.name, p.options));
+    
+    if (opts.require) {
+        bundler.require(opts.require);
+    }
 
     function bundle() {
         return bundler
@@ -28,13 +33,13 @@ module.exports = (opts) => {
             .pipe(gulp.dest(opts.dest));
     }
 
-    bundler.on('log', finish);
+    bundler.on('log', onLog);
     bundler.on('update', bundle);
 
     return bundle();
 }
 
-function finish(msg) {
+function onLog(msg) {
     log(cyan('watchify'), msg);
 }
 
