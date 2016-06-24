@@ -1,7 +1,7 @@
 export default class Tags {
   // @ngInject
-  constructor(JWT, AppConstants, $http, $q) {
-    this._AppConstants = AppConstants;
+  constructor(JWT, CONFIG, $http, $q) {
+    this._config = CONFIG;
     this._$http = $http;
   }
 

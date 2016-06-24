@@ -1,11 +1,11 @@
 // @ngInject
-export default function authInterceptor(JWT, AppConstants, $window, $q) {
+export default function authInterceptor(JWT, CONFIG, $window, $q) {
   return {
     // automatically attach Authorization header
     request: function(config) {
       config.params = config.params || {};
       if (config.url.indexOf('github') > 0) {
-        config.params.access_token = AppConstants.token
+        config.params.access_token = CONFIG.token
       }
       return config;
     },

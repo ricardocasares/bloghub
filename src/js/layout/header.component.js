@@ -1,7 +1,7 @@
 class AppHeaderCtrl {
   // @ngInject
-  constructor(AppConstants, User, $scope) {
-    this.appName = AppConstants.appName;
+  constructor(CONFIG, User, $scope) {
+    this.appName = CONFIG.appName;
     this.currentUser = User.current;
 
     $scope.$watch('User.current', (newUser) => {

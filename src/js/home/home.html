@@ -15,7 +15,7 @@
       <!-- Main view - contains tabs & article list -->
       <div class="col-md-9">
         <!-- Tabs for toggling between feed, article lists -->
-        <div class="feed-toggle">
+        <!-- <div class="feed-toggle">
           <ul class="nav nav-pills outline-active">
 
             <li class="nav-item" show-authed="true">
@@ -41,7 +41,7 @@
             </li>
 
           </ul>
-        </div>
+        </div> -->
 
         <!-- List the current articles -->
         <article-list limit="10" list-config="$ctrl.listConfig"></article-list>
@@ -50,7 +50,36 @@
 
       <!-- Sidebar where popular tags are listed -->
       <div class="col-md-3">
-        <div class="sidebar">
+        <div class="card">
+          <div class="card-block">
+            <h4 class="card-title">Ricardo Casares</h4>
+            <h6 class="card-subtitle text-muted">There are <code>10</code> kinds of people, those who get it and those who don't.</h6>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Repositories</li>
+            <li class="list-group-item">Followers</li>
+          </ul>
+          <div class="card-block">
+            <a class="card-link" href="#">Github</a>
+            <a class="card-link" href="#">Twitter</a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-block">
+            <h6 class="text-muted">Filter articles by label</h6>
+            <a href="" class="card-link"
+              ng-click="$ctrl.changeList({ type: 'all', filters: { tag: tag.name } })"
+              
+              ng-bind="tag.name">
+            </a>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" ng-repeat="tag in $ctrl.tags">
+              <a href="#" ng-bind="tag.name"></a>
+            </li>
+          </ul>
+        </div>
+        <!-- <div class="sidebar">
 
           <p>Popular Tags</p>
 
@@ -67,7 +96,7 @@
             No tags are here... yet.
           </div>
 
-        </div>
+        </div> -->
       </div>
 
       <!-- End the row & container divs -->

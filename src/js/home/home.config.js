@@ -8,9 +8,9 @@ export default function HomeConfig($stateProvider) {
     templateUrl: 'home/home.html',
     title: 'Home',
     resolve: {
-        tags: function(Tags) {
-            return Tags.getAll();
-        }
+      tags: function(Tags, Comments) {
+        return Tags.getAll();
+      }
     }
   });
 };

@@ -8,13 +8,14 @@ export default function AppConfig(
   $urlRouterProvider,
   $compileProvider,
   cfpLoadingBarProvider,
-  AppConstants
+  CONFIG
 ) {
   // Push our interceptor for auth
+  $httpProvider.defaults.cache = true;
   $httpProvider.interceptors.push(authInterceptor);
   
   // enable or disable debug info
-  $compileProvider.debugInfoEnabled(AppConstants.debug);
+  $compileProvider.debugInfoEnabled(CONFIG.debug);
   
   // loading bar config
   cfpLoadingBarProvider.includeSpinner = false;

@@ -1,15 +1,15 @@
 <div class="article-meta">
   <a ui-sref="app.profile.main({ username:$ctrl.article.author.username })">
-    <img ng-src="{{$ctrl.article.author.image}}" />
+    <img src="https://avatars.githubusercontent.com/u/84963?v=3" />
   </a>
 
   <div class="info">
     <a class="author"
       ui-sref="app.profile.main({ username:$ctrl.article.author.username })"
-      ng-bind="$ctrl.article.author.username">
+      >ricardocasares
     </a>
     <span class="date"
-      ng-bind="$ctrl.article.createdAt | date: 'longDate' ">
+      ng-bind="$ctrl.article.created_at | date: 'longDate' ">
     </span>
   </div>
 

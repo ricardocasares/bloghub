@@ -1,7 +1,7 @@
 export default class HomeCtrl {
   // @ngInject
-  constructor(User, tags, AppConstants, $scope) {
-    this.appName = AppConstants.appName;
+  constructor(User, tags, CONFIG, $scope) {
+    this.appName = CONFIG.appName;
     this._$scope = $scope;
     this.tags = tags;
     this.listConfig = {

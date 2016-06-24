@@ -1,5 +1,6 @@
 import angular from 'angular';
 import animate from 'angular-animate';
+import sanitize from 'angular-sanitize';
 import router from 'angular-ui-router';
 import loading from 'angular-loading-bar';
 
@@ -18,11 +19,12 @@ import templates from './config/app.templates';
 // configuration
 import appConfig from './config/app.config';
 import appRun from './config/app.run';
-import appConstants from './config/app.constants';
+import CONFIG from './config/app.constants';
 
 // dependencies
 const deps = [
   router,
+  sanitize,
   loading,
   animate,
   layout.name,
@@ -39,7 +41,7 @@ const deps = [
 
 angular
   .module('app', deps)
-  .constant('AppConstants', appConstants)
+  .constant('CONFIG', CONFIG)
   .config(appConfig)
   .run(appRun);
 

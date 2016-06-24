@@ -1,7 +1,7 @@
 export default class JWT {
   // @ngInject
-  constructor(AppConstants, $window) {
-    this._AppConstants = AppConstants;
+  constructor(CONFIG, $window) {
+    this._config = CONFIG;
     this._$window = $window;
   }
 
@@ -17,15 +17,15 @@ export default class JWT {
   }
 
   save(token) {
-    this._$window.localStorage[this._AppConstants.jwtKey] = token;
+    this._$window.localStorage[this._config.jwtKey] = token;
   }
 
   get() {
-    return this._$window.localStorage[this._AppConstants.jwtKey];
+    return this._$window.localStorage[this._config.jwtKey];
   }
 
   destroy() {
-    this._$window.localStorage.removeItem(this._AppConstants.jwtKey);
+    this._$window.localStorage.removeItem(this._config.jwtKey);
   }
 
 

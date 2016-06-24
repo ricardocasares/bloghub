@@ -1,7 +1,7 @@
 export default class User {
   // @ngInject
-  constructor(JWT, AppConstants, $window, $state, $http, $q) {
-    this._AppConstants = AppConstants;
+  constructor(JWT, CONFIG, $window, $state, $http, $q) {
+    this._config = CONFIG;
     this._$window = $window;
     this._$state = $state;
     this._$http = $http;
@@ -13,7 +13,7 @@ export default class User {
 
   update(fields) {
     return this._$http({
-      url: this._AppConstants.api + '/user',
+      url: this._config.api + '/user',
       method: 'PUT',
       data: { user: fields }
     }).then(
@@ -28,7 +28,7 @@ export default class User {
   attemptAuth(type, credentials) {
     let route = (type === 'login') ? '/login' : '';
     return this._$http({
-      url: this._AppConstants.api + '/users' + route,
+      url: this._config.api + '/users' + route,
       method: 'POST',
       data: {
         user: credentials
@@ -65,7 +65,7 @@ export default class User {
     // If server doesn't 401, set current user & resolve promise.
     } else {
       this._$http({
-        url: this._AppConstants.api + '/user',
+        url: this._config.api + '/user',
         method: 'GET',
       }).then(
         (res) => {

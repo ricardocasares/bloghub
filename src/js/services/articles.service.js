@@ -1,20 +1,29 @@
+import marked from 'marked';
+import hjs from 'highlight.js';
+
+marked.setOptions({
+  highlight: function(code, lang) {
+    return hjs.highlight(lang, code, true).value
+  }
+});
+
 export default class Articles {
   // @ngInject
-  constructor(AppConstants, $http) {
-    this._AppConstants = AppConstants;
+  constructor(CONFIG, $http) {
+    this._config = CONFIG;
     this._$http = $http;
   }
 
   favorite(slug) {
     return this._$http({
-      url: this._AppConstants.api + '/articles/' + slug + '/favorite',
+      url: this._config.api + '/articles/' + slug + '/favorite',
       method: 'POST'
     });
   }
 
   unfavorite(slug) {
     return this._$http({
-      url: this._AppConstants.api + '/articles/' + slug + '/favorite',
+      url: this._config.api + '/articles/' + slug + '/favorite',
       method: 'DELETE'
     });
   }
@@ -24,7 +33,7 @@ export default class Articles {
 
     // If there's a slug, perform an update via PUT w/ article's slug
     if (article.slug) {
-      request.url = `${this._AppConstants.api}/articles/${article.slug}`;
+      request.url = `${this._config.api}/articles/${article.slug}`;
       request.method = 'PUT';
       // Delete the slug from the article to ensure the server updates the slug,
       // which happens if the title of the article changed.
@@ -32,7 +41,7 @@ export default class Articles {
 
     // Otherwise, this is a new article POST request
     } else {
-      request.url = `${this._AppConstants.api}/articles`;
+      request.url = `${this._config.api}/articles`;
       request.method = 'POST';
 
     }
@@ -45,7 +54,7 @@ export default class Articles {
 
   destroy(slug) {
     return this._$http({
-      url: this._AppConstants.api + '/articles/' + slug,
+      url: this._config.api + '/articles/' + slug,
       method: 'DELETE'
     });
   }
@@ -61,8 +70,19 @@ export default class Articles {
     let request = {
       url: 'https://api.github.com/repos/ricardocasares/ricardocasares.github.io/issues',
       method: 'GET',
-      params: config.filters ? config.filters : null
+      params: config.filters ? config.filters : null,
+      transformResponse: append(this._$http.defaults.transformResponse, (x) => {
+        return x.map(x => {
+          x.body = marked(x.body);
+          return x;
+        })
+      })
     };
     return this._$http(request).then((res) => res.data);
   }
+}
+
+function append(defaults, transform) {
+  defaults = angular.isArray(defaults) ? defaults : [defaults];
+  return defaults.concat(transform);
 }
